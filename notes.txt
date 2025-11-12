@@ -1,0 +1,39 @@
+notes from working on this assignment
+==========================================
+
+tried a bunch of stuff before getting it to work
+
+initial attempts:
+- just guessing values manually - way too slow
+- tried scipy.optimize.minimize - kept getting stuck at bad local minima
+- looked up better optimization methods online
+
+what worked:
+- differential_evolution from scipy
+- key insight: sort the data points before comparing
+- took forever to figure out the sorting thing
+
+theta: needs to be in radians for numpy functions!! 
+spent like an hour debugging because of this
+
+parameter search ranges:
+theta: 0 to 50 degrees -> convert to radians (0 to 0.872)
+M: -0.05 to 0.05
+X: 0 to 100
+
+final values i got:
+theta = 30.091364 degrees
+M = 0.029880
+X = 55.013785
+
+L1 distance = 457.912818
+
+things that helped:
+- increasing popsize helped convergence
+- polish=True at the end refines the solution
+- seed=42 for reproducibility
+
+desmos submission:
+\left(t*\cos(0.525193)-e^{0.029880\left|t\right|}\cdot\sin(0.3t)\sin(0.525193)\ +55.013785,42+\ t*\sin(0.525193)+e^{0.029880\left|t\right|}\cdot\sin(0.3t)\cos(0.525193)\right)
+
+domain: 6 <= t <= 60
