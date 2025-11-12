@@ -36,12 +36,6 @@ After trying a bunch of different things, I found:
 
 The main challenge was that I have 1500 data points but I don't know which point corresponds to which t value. 
 
-What ended up working:
-1. Generate t values from 6 to 60
-2. Calculate x and y using my guessed parameters
-3. Sort both the real data and my calculated data by x coordinate
-4. Compare them after sorting
-5. Let the optimizer minimize the difference
 
 I used `differential_evolution` from scipy because:
 - It's good at finding global minima (not getting stuck)
@@ -57,12 +51,6 @@ def calc_curve(t, theta, M, X):
     y = 42 + t * np.sin(theta) + np.exp(M * np.abs(t)) * np.sin(0.3 * t) * np.cos(theta)
     return x, y
 
-# Error function that the optimizer tries to minimize
-def error_function(params):
-    # ... calculate predicted curve
-    # ... sort both real and predicted data
-    # ... return sum of squared differences
-```
 
 ## Files
 
@@ -77,13 +65,6 @@ def error_function(params):
 pip install numpy pandas scipy matplotlib
 python solve_parametric_curve.py
 ```
-
-## What I Learned
-
-- Differential evolution is really good for optimization problems with lots of local minima
-- Sorting data is a simple way to match points when you don't know the correspondence
-- The exp(M|t|) term makes the curve have growing oscillations
-- Getting the bounds right is important - the optimizer won't search outside them
 
 ## Issues I Ran Into
 
