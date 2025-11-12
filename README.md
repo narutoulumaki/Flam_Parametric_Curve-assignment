@@ -78,16 +78,6 @@ pip install numpy pandas scipy matplotlib
 python solve_parametric_curve.py
 ```
 
-## For Submission
-
-Copy this into Desmos:
-
-```
-\left(t*\cos(0.525193)-e^{0.029880\left|t\right|}\cdot\sin(0.3t)\sin(0.525193)\ +55.013786,42+\ t*\sin(0.525193)+e^{0.029880\left|t\right|}\cdot\sin(0.3t)\cos(0.525193)\right)
-```
-
-Set domain to 6 ≤ t ≤ 60
-
 ## What I Learned
 
 - Differential evolution is really good for optimization problems with lots of local minima
